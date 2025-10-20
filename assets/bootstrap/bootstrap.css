@@ -379,7 +379,8 @@ select:disabled {
 button,
 [type=button],
 [type=reset],
-[type=submit] {
+[type=submit] { 
+  appearance: button;
   -webkit-appearance: button;
 }
 
@@ -606,7 +607,7 @@ progress {
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 100%;    
   height: auto;
 }
 

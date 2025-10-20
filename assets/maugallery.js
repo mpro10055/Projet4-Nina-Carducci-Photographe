@@ -150,7 +150,7 @@
 
       $(imagesCollection).each(function(i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i ;
+          index = i -1 ;
         }
       });
       next =
@@ -189,7 +189,7 @@
 
       $(imagesCollection).each(function(i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
+          index = i +1;
         }
       });
       next = imagesCollection[index] || imagesCollection[0];
@@ -198,7 +198,7 @@
     createLightBox(gallery, lightboxId, navigation) {
       gallery.append(`<div class="modal fade" id="${
         lightboxId ? lightboxId : "galleryLightbox"
-      }" tabindex="-1" role="dialog" aria-hidden="true">
+      }" tabindex="-1" role="dialog"  aria-hidden="true"
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -217,6 +217,7 @@
                     </div>
                 </div>
             </div>`);
+          
     },
     showItemTags(gallery, position, tags) {
       var tagItems =
@@ -235,14 +236,17 @@
         console.error(`Unknown tags position: ${position}`);
       }
     },
+
+
     filterByTag() {
       if ($(this).hasClass("active-tag")) {
         return;
       }
       $(".active-tag").removeClass("active active-tag");
-      $(this).addClass("active-tag");
+      $(this).addClass("active active-tag");
 
       var tag = $(this).data("images-toggle");
+      
 
       $(".gallery-item").each(function() {
         $(this)
@@ -261,3 +265,4 @@
     }
   };
 })(jQuery);
+  
